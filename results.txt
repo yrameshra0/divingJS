@@ -1,0 +1,39 @@
+
+[0m[0m
+[0m  Function Declaration Tests[0m
+[2K[0G  [32m  ✓[0m[90m Function Expression[0m
+[2K[0G  [32m  ✓[0m[90m Conditional Functional Expression[0m
+[2K[0G  [32m  ✓[0m[90m Method Literals[0m
+[2K[0G  [32m  ✓[0m[90m Named Function Expression[0m
+[2K[0G  [32m  ✓[0m[90m Lamda[0m
+
+[0m  Using Functional Iterators[0m
+[2K[0G  [32m  ✓[0m[90m Standard Get Count[0m
+[2K[0G  [32m  ✓[0m[90m Functional Iterator Get Count[0m
+[2K[0G  [32m  ✓[0m[90m Functional Iterator Avoiding Mutation[0m
+
+[0m  Hositing Examples[0m
+[2K[0G  [32m  ✓[0m[90m Function declaration Hositing[0m
+[2K[0G  [32m  ✓[0m[90m Function declaration hoisted[0m
+[2K[0G  [32m  ✓[0m[90m Function expression hoisting[0m
+[2K[0G  [32m  ✓[0m[90m Function expression hoisted[0m
+
+[0m  Mutation - Side effects[0m
+[2K[0G  [32m  ✓[0m[90m Using setValue[0m
+[2K[0G  [32m  ✓[0m[90m Unkowningly Mutated[0m
+
+[0m  Mutation - No Side effect [0m
+[2K[0G  [32m  ✓[0m[90m Using setValue[0m
+[2K[0G  [32m  ✓[0m[90m Not mutated[0m
+
+[0m  Shopping Cart Tests[0m
+[0m    ORDER With UnIntentional side effects[0m
+[2K[0G    [32m  ✓[0m[90m Session Cart has grapefruit[0m
+[2K[0G    [32m  ✓[0m[90m Saved Cart Too contains grapefruit[0m
+[0m    ORDER With No side effects[0m
+[2K[0G    [32m  ✓[0m[90m Session Cart has grapefruit[0m
+[2K[0G    [32m  ✓[0m[90m Saved Cart Does not contain grapefruit[0m
+
+
+[92m [0m[32m 20 passing[0m[90m (28ms)[0m
+

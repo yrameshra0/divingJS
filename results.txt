@@ -22,6 +22,9 @@
 [2K[0G  [32m  ✓[0m[90m Prototypes without IIFE[0m
 [2K[0G  [32m  ✓[0m[90m IIFE Implementation[0m
 
+[0m  Method Context[0m
+[2K[0G  [32m  ✓[0m[90m Method Invocation[0m
+
 [0m  Mutation - Side effects[0m
 [2K[0G  [32m  ✓[0m[90m Using setValue[0m
 [2K[0G  [32m  ✓[0m[90m Unkowningly Mutated[0m
@@ -39,5 +42,5 @@
 [2K[0G    [32m  ✓[0m[90m Saved Cart Does not contain grapefruit[0m
 
 
-[92m [0m[32m 22 passing[0m[90m (10ms)[0m
+[92m [0m[32m 23 passing[0m[90m (12ms)[0m
 

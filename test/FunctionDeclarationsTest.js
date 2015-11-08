@@ -1,9 +1,9 @@
 var assert = require('chai').assert;
 
-describe("Function Declaration Tests", function () {
+describe("Function Declaration Tests", function() {
 
-  it("Function Expression", function () {
-    var bar = function () {
+  it("Function Expression", function() {
+    var bar = function() {
       return "foo";
     };
 
@@ -14,15 +14,15 @@ describe("Function Declaration Tests", function () {
     */
   });
 
-  it("Conditional Functional Expression", function () {
+  it("Conditional Functional Expression", function() {
     var grade, score = 4;
 
     if (score > 5) {
-      grade = function () {
+      grade = function() {
         return "pass";
       };
     } else {
-      grade = function () {
+      grade = function() {
         return "fail";
       };
     }
@@ -30,19 +30,19 @@ describe("Function Declaration Tests", function () {
     assert.equal(grade(), "fail");
   });
 
-  it("Method Literals", function () {
+  it("Method Literals", function() {
     /**
     Functions expression assigned to objects literals are sometimes called as method literals.
     Methods are functions attached to objects. They make it very easy to group related functions.
     */
     var lightBulb = {
-      off: function () {
+      off: function() {
         return "off";
       },
-      on: function () {
+      on: function() {
         return "on";
       },
-      blink: function () {
+      blink: function() {
         return "blink";
       }
     };
@@ -50,7 +50,7 @@ describe("Function Declaration Tests", function () {
     assert.equal(lightBulb.blink(), "blink", "Syntactic verification");
   });
 
-  it("Named Function Expression", function () {
+  it("Named Function Expression", function() {
     /**
     Named function expression are like anonymous functions expressions in every way, except that they have name that we
     can use from inside function for purpose of recurion
@@ -67,11 +67,11 @@ describe("Function Declaration Tests", function () {
     }
   });
 
-  it("Lambda", function () {
+  it("Lambda", function() {
     /**
     Lamda is a function that is used as data.
     */
-    var sum = function () {
+    var sum = function() {
       var result = 0;
       [5, 5, 5].forEach(function addTo(number) {
         result += number;

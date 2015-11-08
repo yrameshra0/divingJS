@@ -5,7 +5,7 @@
 [2K[0G  [32m  ✓[0m[90m Conditional Functional Expression[0m
 [2K[0G  [32m  ✓[0m[90m Method Literals[0m
 [2K[0G  [32m  ✓[0m[90m Named Function Expression[0m
-[2K[0G  [32m  ✓[0m[90m Lamda[0m
+[2K[0G  [32m  ✓[0m[90m Lambda[0m
 
 [0m  Using Functional Iterators[0m
 [2K[0G  [32m  ✓[0m[90m Standard Get Count[0m
@@ -17,6 +17,10 @@
 [2K[0G  [32m  ✓[0m[90m Function declaration hoisted[0m
 [2K[0G  [32m  ✓[0m[90m Function expression hoisting[0m
 [2K[0G  [32m  ✓[0m[90m Function expression hoisted[0m
+
+[0m  Immediately Invoked Function Expression (IIFE -- Ben Alman)[0m
+[2K[0G  [32m  ✓[0m[90m Prototypes without IIFE[0m
+[2K[0G  [32m  ✓[0m[90m IIFE Implementation[0m
 
 [0m  Mutation - Side effects[0m
 [2K[0G  [32m  ✓[0m[90m Using setValue[0m
@@ -35,5 +39,5 @@
 [2K[0G    [32m  ✓[0m[90m Saved Cart Does not contain grapefruit[0m
 
 
-[92m [0m[32m 20 passing[0m[90m (19ms)[0m
+[92m [0m[32m 22 passing[0m[90m (10ms)[0m
 

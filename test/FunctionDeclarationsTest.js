@@ -67,7 +67,7 @@ describe("Function Declaration Tests", function () {
     }
   });
 
-  it("Lamda", function () {
+  it("Lambda", function () {
     /**
     Lamda is a function that is used as data.
     */
@@ -81,5 +81,24 @@ describe("Function Declaration Tests", function () {
     };
 
     assert.equal(sum(), 15);
+    /**
+    Lambdas in Javascript are commonly used to :
+    1) Performing operations on other arguments passed in
+    2) Attaching event handlers for DOM interactions
+    2) Pass in a callback function to be executed when the current function is complete
+    3) Wrap existing functions with additional functionality (often used to implement cross-cutting concerns, such as
+        logging). A Function that adds functionality to another function is called function decorator.
+    4) Take a function that requires multiple parameters, and return a function that requires fewer parameters --
+        for example by fixing one or more of the parameters to specific values.
+    5) Return a function from another function. For example, you might have a function that takes an argument and
+        returns a curried function that appiles that argument in a predetermined calculation
+
+    • Function anonymity is merely syntatic sugar for lambads, designed to make them less verbose and easier to work with.
+    • A closure is created when an function references data that is contained outside the function socpe.
+    • Higher order functions are functions that consume or return function as data. Lambdas get passed to and/or
+      returned from higher order functions. A function might be both an lambda and a higher order function, but not all
+      higher order functions are lambdas.
+
+    */
   });
 });

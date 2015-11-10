@@ -29,6 +29,10 @@
 [0m  Method Context[0m
 [2K[0G  [32m  ✓[0m[90m Method Invocation[0m
 
+[0m  Name Parameters[0m
+[2K[0G  [32m  ✓[0m[90m Large Arity[0m
+[2K[0G  [32m  ✓[0m[90m Using underscore extend[0m
+
 [0m  Mutation - Side effects[0m
 [2K[0G  [32m  ✓[0m[90m Using setValue[0m
 [2K[0G  [32m  ✓[0m[90m Unkowningly Mutated[0m
@@ -46,5 +50,5 @@
 [2K[0G    [32m  ✓[0m[90m Saved Cart Does not contain grapefruit[0m
 
 
-[92m [0m[32m 25 passing[0m[90m (31ms)[0m
+[92m [0m[32m 27 passing[0m[90m (25ms)[0m
 

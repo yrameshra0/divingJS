@@ -1,5 +1,9 @@
 
 [0m[0m
+[0m  Access through Closure [0m
+[2K[0G  [32m  ✓[0m[90m Closure Object Privacy[0m
+[2K[0G  [32m  ✓[0m[90m Closure with setTimeout[0m
+
 [0m  Function Declaration Tests[0m
 [2K[0G  [32m  ✓[0m[90m Function Expression[0m
 [2K[0G  [32m  ✓[0m[90m Conditional Functional Expression[0m
@@ -42,5 +46,5 @@
 [2K[0G    [32m  ✓[0m[90m Saved Cart Does not contain grapefruit[0m
 
 
-[92m [0m[32m 23 passing[0m[90m (12ms)[0m
+[92m [0m[32m 25 passing[0m[90m (31ms)[0m
 

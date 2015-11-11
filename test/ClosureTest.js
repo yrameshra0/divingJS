@@ -59,7 +59,6 @@ describe("Access through Closure ", function() {
     it will take time for that to happen
     Though the main things getting tested here are :
     1) inner() lambda has access to `count`, `compelete()` and `arr` from the containing function
-    2)
     */
   });
 });

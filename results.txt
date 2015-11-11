@@ -11,6 +11,10 @@
 [2K[0G  [32m  ✓[0m[90m Named Function Expression[0m
 [2K[0G  [32m  ✓[0m[90m Lambda[0m
 
+[0m  Functional Polymorphism[0m
+[2K[0G  [32m  ✓[0m[90m Arguments Sorting[0m
+[2K[0G  [32m  ✓[0m[90m Polymorphic Branching[0m
+
 [0m  Using Functional Iterators[0m
 [2K[0G  [32m  ✓[0m[90m Standard Get Count[0m
 [2K[0G  [32m  ✓[0m[90m Functional Iterator Get Count[0m
@@ -29,10 +33,6 @@
 [0m  Method Context[0m
 [2K[0G  [32m  ✓[0m[90m Method Invocation[0m
 
-[0m  Name Parameters[0m
-[2K[0G  [32m  ✓[0m[90m Large Arity[0m
-[2K[0G  [32m  ✓[0m[90m Using underscore extend[0m
-
 [0m  Mutation - Side effects[0m
 [2K[0G  [32m  ✓[0m[90m Using setValue[0m
 [2K[0G  [32m  ✓[0m[90m Unkowningly Mutated[0m
@@ -40,6 +40,10 @@
 [0m  Mutation - No Side effect [0m
 [2K[0G  [32m  ✓[0m[90m Using setValue[0m
 [2K[0G  [32m  ✓[0m[90m Not mutated[0m
+
+[0m  Name Parameters[0m
+[2K[0G  [32m  ✓[0m[90m Large Arity[0m
+[2K[0G  [32m  ✓[0m[90m Using underscore extend[0m
 
 [0m  Shopping Cart Tests[0m
 [0m    ORDER With UnIntentional side effects[0m
@@ -50,5 +54,5 @@
 [2K[0G    [32m  ✓[0m[90m Saved Cart Does not contain grapefruit[0m
 
 
-[92m [0m[32m 27 passing[0m[90m (25ms)[0m
+[92m [0m[32m 29 passing[0m[90m (29ms)[0m
 

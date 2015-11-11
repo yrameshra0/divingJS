@@ -20,6 +20,11 @@
 [2K[0G  [32m  ✓[0m[90m Functional Iterator Get Count[0m
 [2K[0G  [32m  ✓[0m[90m Functional Iterator Avoiding Mutation[0m
 
+[0m  Generic Collections Handling[0m
+[2K[0G  [32m  ✓[0m[90m Ad-Hoc Conditional Branching[0m
+[2K[0G  [32m  ✓[0m[90m Collection Polymorphism[0m
+[2K[0G  [32m  ✓[0m[90m Collection Polymorphism with numbers[0m
+
 [0m  Hositing Examples[0m
 [2K[0G  [32m  ✓[0m[90m Function declaration Hositing[0m
 [2K[0G  [32m  ✓[0m[90m Function declaration hoisted[0m
@@ -32,6 +37,9 @@
 
 [0m  Method Context[0m
 [2K[0G  [32m  ✓[0m[90m Method Invocation[0m
+
+[0m  Dynamic Dispatch[0m
+[2K[0G  [32m  ✓[0m[90m Method Dispatch[0m
 
 [0m  Mutation - Side effects[0m
 [2K[0G  [32m  ✓[0m[90m Using setValue[0m
@@ -54,5 +62,5 @@
 [2K[0G    [32m  ✓[0m[90m Saved Cart Does not contain grapefruit[0m
 
 
-[92m [0m[32m 29 passing[0m[90m (29ms)[0m
+[92m [0m[32m 33 passing[0m[90m (32ms)[0m
 

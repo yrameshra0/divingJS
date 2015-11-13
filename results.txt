@@ -21,7 +21,7 @@
 [2K[0G  [32m  ✓[0m[90m Functional Iterator Avoiding Mutation[0m
 
 [0m  Functional Tests[0m
-[2K[0G  [32m  ✓[0m[90m Abstracting Algorithms from Datatypes[0m
+[2K[0G  [32m  ✓[0m[90m Abstracting Algorithms from Data types[0m
 [2K[0G  [32m  ✓[0m[90m Tradition looping constructs[0m
 [2K[0G  [32m  ✓[0m[90m Functiona looping constructs[0m
 
@@ -30,8 +30,8 @@
 [2K[0G  [32m  ✓[0m[90m Collection Polymorphism[0m
 [2K[0G  [32m  ✓[0m[90m Collection Polymorphism with numbers[0m
 
-[0m  Hositing Examples[0m
-[2K[0G  [32m  ✓[0m[90m Function declaration Hositing[0m
+[0m  Hoisting Examples[0m
+[2K[0G  [32m  ✓[0m[90m Function declaration Hoisting[0m
 [2K[0G  [32m  ✓[0m[90m Function declaration hoisted[0m
 [2K[0G  [32m  ✓[0m[90m Function expression hoisting[0m
 [2K[0G  [32m  ✓[0m[90m Function expression hoisted[0m
@@ -48,7 +48,7 @@
 
 [0m  Mutation - Side effects[0m
 [2K[0G  [32m  ✓[0m[90m Using setValue[0m
-[2K[0G  [32m  ✓[0m[90m Unkowningly Mutated[0m
+[2K[0G  [32m  ✓[0m[90m Unknowingly Mutated[0m
 
 [0m  Mutation - No Side effect [0m
 [2K[0G  [32m  ✓[0m[90m Using setValue[0m
@@ -67,5 +67,5 @@
 [2K[0G    [32m  ✓[0m[90m Saved Cart Does not contain grapefruit[0m
 
 
-[92m [0m[32m 36 passing[0m[90m (38ms)[0m
+[92m [0m[32m 36 passing[0m[90m (20ms)[0m
 

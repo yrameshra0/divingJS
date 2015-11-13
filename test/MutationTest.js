@@ -17,7 +17,7 @@ describe("Mutation - Side effects", function () {
     assert.equal(myObj.value, 3);
   });
 
-  it("Unkowningly Mutated", function () {
+  it("Unknowingly Mutated", function () {
     assert.notEqual(obj.value, 2);
   });
 

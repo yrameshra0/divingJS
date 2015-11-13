@@ -21,7 +21,7 @@ describe("Access through Closure ", function() {
     try {
       assert.ok(obj.data, 'This throws error');
     } catch (e) {
-      assert.ok(true, 'The data var is only available to priviledged methods');
+      assert.ok(true, 'The data var is only available to privileged methods');
     }
 
     assert.equal(obj.get(), 1, ".get() should have access to the closure");

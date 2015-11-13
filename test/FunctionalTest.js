@@ -10,7 +10,7 @@ describe('Functional Tests', function() {
 			timing: '12AM',
 			ticketPrice: '100'
 		}, {
-			name: 'Nigth Show',
+			name: 'Night Show',
 			timing: '9PM',
 			ticketPrice: '290'
 		}],
@@ -28,7 +28,7 @@ describe('Functional Tests', function() {
 			price: '346'
 		}];
 
-	it('Abstracting Algorithms from Datatypes', function() {
+	it('Abstracting Algorithms from Data types', function() {
 		var sortedShows = shows.sort(function(a, b) {
 				return a.ticketPrice > b.ticketPrice;
 			}),

@@ -4,7 +4,7 @@ describe("Functional Polymorphism", function() {
 
 	it("Arguments Sorting", function() {
 		function sort() {
-			// `arguments` is not real array, it doen't have `.sort()` method available with it
+			// `arguments` is not real array, it doesn't have `.sort()` method available with it
 			var args = [].slice.call(arguments, 0);
 
 			return args.sort();
@@ -16,7 +16,7 @@ describe("Functional Polymorphism", function() {
 	it("Polymorphic Branching", function() {
 		function morph(options) {
 			var args = [].slice.call(arguments, 0),
-				animals = 'turtules';
+				animals = 'turtles';
 
 			if (typeof options === 'string') {
 				animals = options;
@@ -31,7 +31,7 @@ describe("Functional Polymorphism", function() {
 
 		assert.equal(test1, 'The pet store has 3 cats');
 		assert.equal(test2, 'The pet store has 2 dogs');
-		assert.equal(test3, 'The pet store has 3 turtules');
+		assert.equal(test3, 'The pet store has 3 turtles');
 	});
 
 });

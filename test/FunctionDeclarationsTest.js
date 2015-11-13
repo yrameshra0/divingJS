@@ -53,7 +53,7 @@ describe("Function Declaration Tests", function() {
   it("Named Function Expression", function() {
     /**
     Named function expression are like anonymous functions expressions in every way, except that they have name that we
-    can use from inside function for purpose of recurion
+    can use from inside function for purpose of recursion
     */
     var a = function x() {
       assert.ok(x, "x() is usable inside function");
@@ -69,7 +69,7 @@ describe("Function Declaration Tests", function() {
 
   it("Lambda", function() {
     /**
-    Lamda is a function that is used as data.
+    Lambda is a function that is used as data.
     */
     var sum = function() {
       var result = 0;
@@ -91,10 +91,10 @@ describe("Function Declaration Tests", function() {
     4) Take a function that requires multiple parameters, and return a function that requires fewer parameters --
         for example by fixing one or more of the parameters to specific values.
     5) Return a function from another function. For example, you might have a function that takes an argument and
-        returns a curried function that appiles that argument in a predetermined calculation
+        returns a curried function that applies that argument in a predetermined calculation
 
-    • Function anonymity is merely syntatic sugar for lambads, designed to make them less verbose and easier to work with.
-    • A closure is created when an function references data that is contained outside the function socpe.
+    • Function anonymity is merely syntactic sugar for lambdas, designed to make them less verbose and easier to work with.
+    • A closure is created when an function references data that is contained outside the function scope.
     • Higher order functions are functions that consume or return function as data. Lambdas get passed to and/or
       returned from higher order functions. A function might be both an lambda and a higher order function, but not all
       higher order functions are lambdas.

@@ -1,7 +1,7 @@
 var assert = require("chai").assert;
 
-describe("Hositing Examples", function () {
-  it("Function declaration Hositing", function () {
+describe("Hoisting Examples", function () {
+  it("Function declaration Hoisting", function () {
     function number() {
       return 1;
     }
@@ -61,7 +61,7 @@ describe("Hositing Examples", function () {
     }
 
     (function () {
-      var number; //Declaration initialized to undefinied
+      var number; //Declaration initialized to undefined
       try {
         number();
       } catch (e) {

@@ -1,30 +1,30 @@
 var assert = require('assert');
 
 describe('Pure Functions', function() {
-	it('Not Pure Functions -- Due to Mutation', function() {
-		function rotate(arr) {
-			arr.push(arr.shift());
+    it('Not Pure Functions -- Due to Mutation', function() {
+        function rotate(arr) {
+            arr.push(arr.shift());
 
-			return arr;
-		}
-		
-		var arrToRotate = [1, 2, 3];
+            return arr;
+        }
 
-		assert.deepEqual(rotate(arrToRotate), [2, 3, 1]);
-		assert.notDeepEqual(arrToRotate, [1, 2, 3]); // Indicating that the original arr has be modified in the process of rotation
-	});
+        var arrToRotate = [1, 2, 3];
 
-	it('Pure Function', function(){
-		function rotate(arr){
-			var newArr = arr.slice(0);
-			newArr.push(newArr.shift());
+        assert.deepEqual(rotate(arrToRotate), [2, 3, 1]);
+        assert.notDeepEqual(arrToRotate, [1, 2, 3]); // Indicating that the original arr has be modified in the process of rotation
+    });
 
-			return newArr;
-		}
+    it('Pure Function', function() {
+        function rotate(arr) {
+            var newArr = arr.slice(0);
+            newArr.push(newArr.shift());
 
-		var arrToRotate = [1, 2, 3];
+            return newArr;
+        }
 
-		assert.deepEqual(rotate(arrToRotate), [2, 3, 1]);
-		assert.deepEqual(arrToRotate, [1, 2, 3]); // Indicating that the original arr is intact
-	});
+        var arrToRotate = [1, 2, 3];
+
+        assert.deepEqual(rotate(arrToRotate), [2, 3, 1]);
+        assert.deepEqual(arrToRotate, [1, 2, 3]); // Indicating that the original arr is intact
+    });
 });

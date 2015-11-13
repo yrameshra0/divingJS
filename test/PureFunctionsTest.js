@@ -6,7 +6,8 @@ describe('Pure Functions', function() {
 			arr.push(arr.shift());
 
 			return arr;
-		};
+		}
+		
 		var arrToRotate = [1, 2, 3];
 
 		assert.deepEqual(rotate(arrToRotate), [2, 3, 1]);

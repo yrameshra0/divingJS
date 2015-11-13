@@ -24,5 +24,10 @@ describe('Partial Functions', function() {
 			double = partial(multiply, 2);
 
 		assert.equal(double(4), 8);
+
+		var boundDouble = multiply.bind(null, 2); // null context
+		// Using Prototype Binding
+
+		assert.equal(boundDouble(3), 6);
 	});
 });

@@ -42,6 +42,4 @@ describe('Asynchronus Functions Handling', function() {
             assert.eventually.notEqual(defer.promise, 0)
         ]);
     });
-
-
 });

@@ -61,6 +61,10 @@
 [0m  Partial Functions[0m
 [2K[0G  [32m  ✓[0m[90m Extending Function[0m
 
+[0m  Asynchronus Functions Handling[0m
+[2K[0G  [32m  ✓[0m[90m Callback Passing Approach[0m
+[2K[0G  [32m  ✓[0m[90m Promise Handling[0m
+
 [0m  Pure Functions[0m
 [2K[0G  [32m  ✓[0m[90m Not Pure Functions -- Due to Mutation[0m
 [2K[0G  [32m  ✓[0m[90m Pure Function[0m
@@ -74,5 +78,5 @@
 [2K[0G    [32m  ✓[0m[90m Saved Cart Does not contain grapefruit[0m
 
 
-[92m [0m[32m 39 passing[0m[90m (24ms)[0m
+[92m [0m[32m 41 passing[0m[90m (38ms)[0m
 

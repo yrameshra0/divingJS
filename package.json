@@ -9,12 +9,15 @@
   "author": "Ramesh",
   "license": "ISC",
   "dependencies": {
+    "q": "^1.4.1"
   },
   "devDependencies": {
     "chai": "^3.4.0",
-    "mocha": "^2.3.3",
+    "chai-as-promised": "^5.1.0",
     "grunt": "^0.4.5",
     "grunt-contrib-jshint": "^0.11.3",
-    "grunt-mocha-test": "^0.12.7"
+    "grunt-mocha-test": "^0.12.7",
+    "mocha": "^2.3.3",
+    "mocha-as-promised": "^2.0.0"
   }
 }

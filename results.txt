@@ -30,12 +30,6 @@
 [2K[0G  [32m  ✓[0m[90m Collection Polymorphism[0m
 [2K[0G  [32m  ✓[0m[90m Collection Polymorphism with numbers[0m
 
-[0m  Hoisting Examples[0m
-[2K[0G  [32m  ✓[0m[90m Function declaration Hoisting[0m
-[2K[0G  [32m  ✓[0m[90m Function declaration hoisted[0m
-[2K[0G  [32m  ✓[0m[90m Function expression hoisting[0m
-[2K[0G  [32m  ✓[0m[90m Function expression hoisted[0m
-
 [0m  Immediately Invoked Function Expression (IIFE -- Ben Alman)[0m
 [2K[0G  [32m  ✓[0m[90m Prototypes without IIFE[0m
 [2K[0G  [32m  ✓[0m[90m IIFE Implementation[0m
@@ -89,6 +83,9 @@
 [2K[0G  [32m  ✓[0m[90m Using Factories[0m
 [2K[0G  [32m  ✓[0m[90m Flyweight Factory Cloning[0m
 
+[0m  Prototypical Inheritance[0m
+[2K[0G  [32m  ✓[0m[90m Using StampIt[0m
 
-[92m [0m[32m 49 passing[0m[90m (39ms)[0m
+
+[92m [0m[32m 46 passing[0m[90m (50ms)[0m
 

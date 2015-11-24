@@ -1,4 +1,3 @@
-require('mocha-as-promised');
 var chaiAsPromised = require('chai-as-promised');
 var chai = require('chai');
 

@@ -42,6 +42,8 @@ describe('Interface Creation', function() {
                 });
 
             post().setStorage(localstorageProvider()).save();
+            post().setStorage(cookieProvider()).save();
+            assert.throw(post().setStorage(storageInterface()).save);
         }());
     });
 });

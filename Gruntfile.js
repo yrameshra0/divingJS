@@ -49,7 +49,7 @@ module.exports = function(grunt) {
         },
         // QUnit
         qunit: {
-            all: ['./guestlisteg/test/index.html']
+            all: ['./guestlisteg/test/*.html']
         }
     });
 

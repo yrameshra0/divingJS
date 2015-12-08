@@ -2,6 +2,8 @@ module.exports = function(grunt) {
     // Do grunt-related things in here
     grunt.loadNpmTasks('grunt-mocha-test');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-browserify');
+    grunt.loadNpmTasks('grunt-contrib-qunit');
 
     grunt.initConfig({
         // Configure mochaTest Task
@@ -33,8 +35,24 @@ module.exports = function(grunt) {
             options: {
 
             }
+        },
+        // Configuring Browserify
+        browserify: {
+            dist: {
+                files: {
+                    './guestlisteg/public/app.js': ['./guestlisteg/src/*.js']
+                }
+            },
+            options: {
+                banner: '//*************** ENJOYING JAVASCRIPT DIVING ***************'
+            }
+        },
+        // QUnit
+        qunit: {
+            all: ['./guestlisteg/test/index.html']
         }
     });
 
-    grunt.registerTask('default', ['jshint', 'mochaTest']);
+    grunt.registerTask('default', ['jshint', 'mochaTest', 'quint']);
+    grunt.registerTask('install', 'browserify');
 };

@@ -53,6 +53,6 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.registerTask('default', ['jshint', 'mochaTest', 'quint']);
+    grunt.registerTask('default', ['jshint', 'mochaTest', 'qunit']);
     grunt.registerTask('install', 'browserify');
 };

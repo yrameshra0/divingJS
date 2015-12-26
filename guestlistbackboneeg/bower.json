@@ -1,0 +1,16 @@
+{
+  "name": "guestlistbackboneeg",
+  "authors": [
+    "Y Ramesh Rao <ramesh.rao.y@philips.com>"
+  ],
+  "description": "Guest list example using backbone",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "qunit": "~1.20.0",
+    "jquery": "~2.1.4"
+  }
+}

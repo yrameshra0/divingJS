@@ -31,7 +31,9 @@ module.exports = function(grunt) {
         },
         // Configure jshint Task
         jshint: {
-            files: ['Gruntfile.js', 'app/**/*.js', 'test/**/*.js'],
+            files: ['Gruntfile.js', 'app/**/*.js', 'test/**/*.js', './guestlisteg/src/**/*.js', './guestlisteg/test/**/*.js',
+                './guestlistbackboneeg/src/**/*.js', './guestlistbackboneeg/src/**/*.js'
+            ],
             options: {
 
             }
@@ -40,7 +42,8 @@ module.exports = function(grunt) {
         browserify: {
             dist: {
                 files: {
-                    './guestlisteg/public/app.js': ['./guestlisteg/src/*.js']
+                    './guestlisteg/public/app.js': ['./guestlisteg/src/*.js'],
+                    './guestlistbackboneeg/public/app.js': ['./guestlistbackboneeg/src/*.js']
                 }
             },
             options: {
@@ -51,6 +54,7 @@ module.exports = function(grunt) {
         qunit: {
             all: ['./guestlisteg/test/*.html', './guestlistbackboneeg/test/*.html']
         }
+
     });
 
     grunt.registerTask('default', ['jshint', 'mochaTest', 'qunit']);

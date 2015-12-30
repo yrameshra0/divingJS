@@ -1,8 +1,8 @@
 var app = require('tinyapp'),
-    Model = require('./guestmodel'),
+    Guest = require('./guestmodel'),
     Collection = require('backbone').Collection
     .extend({
-        model: Model
+        model: Guest
     }),
 
     create = function create(models) {

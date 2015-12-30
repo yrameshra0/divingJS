@@ -34,7 +34,7 @@ var app = require('tinyapp'),
     },
 
     render = function render(data) {
-        console.log('GuestListView -- Render');
+        console.log('GuestListView -- Render --> ' + JSON.stringify(data));
 
         var $el = this.$el;
 

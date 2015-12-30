@@ -34,6 +34,10 @@ var Model = require('backbone').Model,
     // The collection expects a Backbone.Model constructor.
 
     api = Model.extend({
+        defaults: {
+            name: 'Not Specified',
+            id: 'Not Specified'
+        },
         initialize: delegate,
         toggleCheckedIn: toggleCheckedIn
     });

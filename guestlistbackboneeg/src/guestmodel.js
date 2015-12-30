@@ -13,6 +13,11 @@ var Model = require('backbone').Model,
         // sourceId is used to filter the event. The model
         // does not need to know where the event comes from,
         // only which item is clicked.
+        // ==> #TODO Currently the event is listened for all the model elements present in the system
+        // ==> #TODO_CONTI This should ideally be good if it listens for the single model element only
+        // ==> #TODO Qunit Grunt Task is failing currently suspecting that its because the tinyapp 
+        // ==> #TODO_CONTI event dependence that its currently failing 
+
         app.on('toggled-checkedin', _.bind(toggleCheckedIn, this));
 
         // Relay the change event so that the view can listen for it

@@ -8,8 +8,6 @@ var $ = require('jquery-browserify'),
     $container = $('#container'),
     app = require('tinyapp'),
     initialize = function initialize() {
-        console.log('Application Initialization happened');
-
         var guestCollection = GuestCollection.create(createGuestList());
 
         guestlistView.render(guestCollection.models);
@@ -24,7 +22,7 @@ var $ = require('jquery-browserify'),
     createGuestList = function createGuestList() {
         var model = [];
         guestListModel.load().forEach(function generate(data) {
-            var myModel = createModel(data)
+            var myModel = createModel(data);
             model.push(myModel);
         });
 
@@ -59,22 +57,25 @@ module.exports = api;
 },{"./guestmodel":5,"backbone":7,"tinyapp":13}],3:[function(require,module,exports){
 var api = {
     load: function load() {
-        return [{
-            'id': 1,
-            'name': 'Jimi Hendrix'
-        }, {
-            'id': 2,
-            'name': 'Billie Holiday'
-        }, {
-            'id': 3,
-            'name': 'Nina Simone'
-        }, {
-            'id': 4,
-            'name': 'Jim Morrison'
-        }, {
+        return [
+        // {
+        //     'id': 1,
+        //     'name': 'Jimi Hendrix'
+        // }, {
+        //     'id': 2,
+        //     'name': 'Billie Holiday'
+        // }, {
+        //     'id': 3,
+        //     'name': 'Nina Simone'
+        // }, {
+        //     'id': 4,
+        //     'name': 'Jim Morrison'
+        // }, 
+        {
             'id': 5,
             'name': 'Duke Ellington'
-        }, {
+        },
+        {
             'id': 6,
             'name': 'John Bonham'
         }];
@@ -84,7 +85,7 @@ var api = {
 module.exports = api;
 },{}],4:[function(require,module,exports){
 var app = require('tinyapp'),
-
+    _ = require('underscore'),
     // Assign Backbone.View to the View var.
     View = require('backbone').View,
     template = require('underscore').template,
@@ -98,8 +99,8 @@ var app = require('tinyapp'),
     relayClick = function relayClick(e) {
 
         // Get the ID from the element and use it to namespace the event.
-        var sourceId = $(this).attr('id'),
-            event = app.extend(e, {
+        var sourceId = e.target.id,
+            event = _.extend({}, e, {
                 sourceId: sourceId
             });
 
@@ -107,29 +108,23 @@ var app = require('tinyapp'),
     },
 
     delegate = function delegate() {
-        console.log('GuestListView -- Delegate');
-
         // Listen for changed events from the model and make sure 
         // the element reflects the current state
-        app.on('changed.checkedIn', function changedHandler(event) {
+        app.on('changed.checkedIn', _.bind(function changedHandler(event) {
             var id = event.id;
             // Select the right list iten by ID.
-            this.$el.find('#' + id).toggleClass(checkedinClass, event.checkedIn);
-        });
+            var element = this.$el.find('#' + id);
+            element.toggleClass(checkedinClass, event.checkedIn);
+        }, this));
     },
 
     render = function render(data) {
-        console.log('GuestListView -- Render --> ' + JSON.stringify(data));
-
         var $el = this.$el;
 
         // Prevent memory leaks in renderer cases.
         $el.off('click' + this.className);
 
         processTemplate($el, data);
-
-        // Reattach listener.
-        $el.on('click.' + this.className, relayClick);
 
         return this;
     },
@@ -151,8 +146,6 @@ var app = require('tinyapp'),
 
     // Processing Template
     processTemplate = function processTemplate($el, guestList) {
-        console.log('GuestListView -- Process Template');
-
         // Compile the guest template.
         guestTemplate = template($('#guestTemplate').html());
 
@@ -185,6 +178,7 @@ var app = require('tinyapp'),
 module.exports = api;
 },{"backbone":7,"tinyapp":13,"underscore":14}],5:[function(require,module,exports){
 var Model = require('backbone').Model,
+    _ = require('underscore'),
     app = require('tinyapp'),
 
     // Set the checkedIn attribute on the model.
@@ -198,16 +192,16 @@ var Model = require('backbone').Model,
         // sourceId is used to filter the event. The model
         // does not need to know where the event comes from,
         // only which item is clicked.
-        app.on('toggled-checkedin', sourceId, toggleCheckedIn);
+        app.on('toggled-checkedin', _.bind(toggleCheckedIn, this));
 
         // Relay the change event so that the view can listen for it
         // without knowing anything about the model
-        this.on('change:checkedIn', function(item) {
+        this.on('change:checkedIn', _.bind(function(item) {
 
             // Send a shallow copy of the list item as a
             // message payload. Make sure the new checkedIn
             // state is easy to access.
-            var event = app.extend({}, item, {
+            var event = _.extend({}, item, {
                 sourceId: this.id,
                 checkedIn: item.get('checkedIn')
             });
@@ -215,7 +209,7 @@ var Model = require('backbone').Model,
             // Broadcast the message on the aggregator
             app.trigger('changed.checkedIn', event);
 
-        });
+        }, this));
     },
     // The collection expects a Backbone.Model constructor.
 
@@ -229,7 +223,7 @@ var Model = require('backbone').Model,
     });
 
 module.exports = api;
-},{"backbone":7,"tinyapp":13}],6:[function(require,module,exports){
+},{"backbone":7,"tinyapp":13,"underscore":14}],6:[function(require,module,exports){
 //     Backbone.js 0.9.2
 
 //     (c) 2010-2012 Jeremy Ashkenas, DocumentCloud Inc.

@@ -6,8 +6,6 @@ var $ = require('jquery-browserify'),
     $container = $('#container'),
     app = require('tinyapp'),
     initialize = function initialize() {
-        console.log('Application Initialization happened');
-
         var guestCollection = GuestCollection.create(createGuestList());
 
         guestlistView.render(guestCollection.models);

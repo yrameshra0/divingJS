@@ -1,4 +1,5 @@
 var Model = require('backbone').Model,
+    _ = require('underscore'),
     app = require('tinyapp'),
 
     // Set the checkedIn attribute on the model.
@@ -12,16 +13,16 @@ var Model = require('backbone').Model,
         // sourceId is used to filter the event. The model
         // does not need to know where the event comes from,
         // only which item is clicked.
-        app.on('toggled-checkedin', sourceId, toggleCheckedIn);
+        app.on('toggled-checkedin', _.bind(toggleCheckedIn, this));
 
         // Relay the change event so that the view can listen for it
         // without knowing anything about the model
-        this.on('change:checkedIn', function(item) {
+        this.on('change:checkedIn', _.bind(function(item) {
 
             // Send a shallow copy of the list item as a
             // message payload. Make sure the new checkedIn
             // state is easy to access.
-            var event = app.extend({}, item, {
+            var event = _.extend({}, item, {
                 sourceId: this.id,
                 checkedIn: item.get('checkedIn')
             });
@@ -29,7 +30,7 @@ var Model = require('backbone').Model,
             // Broadcast the message on the aggregator
             app.trigger('changed.checkedIn', event);
 
-        });
+        }, this));
     },
     // The collection expects a Backbone.Model constructor.
 

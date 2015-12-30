@@ -1,5 +1,5 @@
 var app = require('tinyapp'),
-
+    _ = require('underscore'),
     // Assign Backbone.View to the View var.
     View = require('backbone').View,
     template = require('underscore').template,
@@ -13,8 +13,8 @@ var app = require('tinyapp'),
     relayClick = function relayClick(e) {
 
         // Get the ID from the element and use it to namespace the event.
-        var sourceId = $(this).attr('id'),
-            event = app.extend(e, {
+        var sourceId = e.target.id,
+            event = _.extend({}, e, {
                 sourceId: sourceId
             });
 
@@ -22,29 +22,23 @@ var app = require('tinyapp'),
     },
 
     delegate = function delegate() {
-        console.log('GuestListView -- Delegate');
-
         // Listen for changed events from the model and make sure 
         // the element reflects the current state
-        app.on('changed.checkedIn', function changedHandler(event) {
+        app.on('changed.checkedIn', _.bind(function changedHandler(event) {
             var id = event.id;
             // Select the right list iten by ID.
-            this.$el.find('#' + id).toggleClass(checkedinClass, event.checkedIn);
-        });
+            var element = this.$el.find('#' + id);
+            element.toggleClass(checkedinClass, event.checkedIn);
+        }, this));
     },
 
     render = function render(data) {
-        console.log('GuestListView -- Render --> ' + JSON.stringify(data));
-
         var $el = this.$el;
 
         // Prevent memory leaks in renderer cases.
         $el.off('click' + this.className);
 
         processTemplate($el, data);
-
-        // Reattach listener.
-        $el.on('click.' + this.className, relayClick);
 
         return this;
     },
@@ -66,8 +60,6 @@ var app = require('tinyapp'),
 
     // Processing Template
     processTemplate = function processTemplate($el, guestList) {
-        console.log('GuestListView -- Process Template');
-
         // Compile the guest template.
         guestTemplate = template($('#guestTemplate').html());
 

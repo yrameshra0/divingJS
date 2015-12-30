@@ -52,7 +52,7 @@ module.exports = function(grunt) {
         },
         // QUnit
         qunit: {
-            all: ['./guestlisteg/test/*.html', './guestlistbackboneeg/test/*.html']
+            all: ['./guestlisteg/test/*.html']
         }
 
     });

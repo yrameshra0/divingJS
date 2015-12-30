@@ -11,27 +11,32 @@ var app = require('tinyapp'),
 
     // Rebroadcast 	DOM click events on the app event aggregator
     relayClick = function relayClick(e) {
+
         // Get the ID from the element and use it to namespace the event.
         var sourceId = $(this).attr('id'),
             event = app.extend(e, {
                 sourceId: sourceId
             });
 
-        app.trigger('toggle-checkedin', event);
+        app.trigger('toggled-checkedin', event);
     },
 
     delegate = function delegate() {
+        console.log('GuestListView -- Delegate');
+
         // Listen for changed events from the model and make sure 
         // the element reflects the current state
         app.on('changed.checkedIn', function changedHandler(event) {
             var id = event.id;
             // Select the right list iten by ID.
             this.$el.find('#' + id).toggleClass(checkedinClass, event.checkedIn);
-        }.bind(this));
+        });
     },
 
     render = function render(data) {
-        var el = this.$el;
+        console.log('GuestListView -- Render');
+
+        var $el = this.$el;
 
         // Prevent memory leaks in renderer cases.
         $el.off('click' + this.className);
@@ -39,12 +44,12 @@ var app = require('tinyapp'),
         processTemplate($el, data);
 
         // Reattach listener.
-        $el.on('click.' + this.className, handleClick);
+        $el.on('click.' + this.className, relayClick);
 
         return this;
     },
-    // Define Backbone View
 
+    // Define Backbone View
     GuestlistView = View.extend({
         tagName: 'ol',
         id: 'guestlist-view',
@@ -61,6 +66,8 @@ var app = require('tinyapp'),
 
     // Processing Template
     processTemplate = function processTemplate($el, guestList) {
+        console.log('GuestListView -- Process Template');
+
         // Compile the guest template.
         guestTemplate = template($('#guestTemplate').html());
 

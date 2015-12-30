@@ -12,7 +12,7 @@ var Model = require('backbone').Model,
         // sourceId is used to filter the event. The model
         // does not need to know where the event comes from,
         // only which item is clicked.
-        app.on('toggled-checkedin', sourceId, toggleCheckedIn.bind(this));
+        app.on('toggled-checkedin', sourceId, toggleCheckedIn);
 
         // Relay the change event so that the view can listen for it
         // without knowing anything about the model
@@ -29,7 +29,7 @@ var Model = require('backbone').Model,
             // Broadcast the message on the aggregator
             app.trigger('changed.checkedIn', event);
 
-        }.bind(this));
+        });
     },
     // The collection expects a Backbone.Model constructor.
 

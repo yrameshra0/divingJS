@@ -1,5 +1,24 @@
 //*************** ENJOYING JAVASCRIPT DIVING ***************
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+var $ = require('jquery-browserify'),
+    guestlistModel = require('./guestlistmodel'),
+    guestlistCollection = require('./guestlistcollection').create(guestlistModel.load()),
+    guestlistView = require('./guestlistview').create(),
+    $container = $('#container'),
+    app = require('tinyapp'),
+    initialize = function initialize() {
+        console.log('Application Initialization happened');
+        guestlistView.render(guestlistCollection);
+        $container.empty().html(guestlistView.$el);
+    };
+
+
+app.renderReady(initialize);
+
+$(function init() {
+
+});
+},{"./guestlistcollection":2,"./guestlistmodel":3,"./guestlistview":4,"jquery-browserify":10,"tinyapp":13}],2:[function(require,module,exports){
 var app = require('tinyapp'),
     Model = require('./guestmodel'),
     Collection = require('backbone').Collection
@@ -18,7 +37,33 @@ var app = require('tinyapp'),
     };
 
 module.exports = api;
-},{"./guestmodel":3,"backbone":5,"tinyapp":11}],2:[function(require,module,exports){
+},{"./guestmodel":5,"backbone":7,"tinyapp":13}],3:[function(require,module,exports){
+var api = {
+    load: function load() {
+        return [{
+            'id': 1,
+            'name': 'Jimi Hendrix'
+        }, {
+            'id': 2,
+            'name': 'Billie Holiday'
+        }, {
+            'id': 3,
+            'name': 'Nina Simone'
+        }, {
+            'id': 4,
+            'name': 'Jim Morrison'
+        }, {
+            'id': 5,
+            'name': 'Duke Ellington'
+        }, {
+            'id': 6,
+            'name': 'John Bonham'
+        }];
+    }
+};
+
+module.exports = api;
+},{}],4:[function(require,module,exports){
 var app = require('tinyapp'),
 
     // Assign Backbone.View to the View var.
@@ -32,27 +77,32 @@ var app = require('tinyapp'),
 
     // Rebroadcast 	DOM click events on the app event aggregator
     relayClick = function relayClick(e) {
+
         // Get the ID from the element and use it to namespace the event.
         var sourceId = $(this).attr('id'),
             event = app.extend(e, {
                 sourceId: sourceId
             });
 
-        app.trigger('toggle-checkedin', event);
+        app.trigger('toggled-checkedin', event);
     },
 
     delegate = function delegate() {
+        console.log('GuestListView -- Delegate');
+
         // Listen for changed events from the model and make sure 
         // the element reflects the current state
         app.on('changed.checkedIn', function changedHandler(event) {
             var id = event.id;
             // Select the right list iten by ID.
             this.$el.find('#' + id).toggleClass(checkedinClass, event.checkedIn);
-        }.bind(this));
+        });
     },
 
     render = function render(data) {
-        var el = this.$el;
+        console.log('GuestListView -- Render');
+
+        var $el = this.$el;
 
         // Prevent memory leaks in renderer cases.
         $el.off('click' + this.className);
@@ -60,12 +110,12 @@ var app = require('tinyapp'),
         processTemplate($el, data);
 
         // Reattach listener.
-        $el.on('click.' + this.className, handleClick);
+        $el.on('click.' + this.className, relayClick);
 
         return this;
     },
-    // Define Backbone View
 
+    // Define Backbone View
     GuestlistView = View.extend({
         tagName: 'ol',
         id: 'guestlist-view',
@@ -82,6 +132,8 @@ var app = require('tinyapp'),
 
     // Processing Template
     processTemplate = function processTemplate($el, guestList) {
+        console.log('GuestListView -- Process Template');
+
         // Compile the guest template.
         guestTemplate = template($('#guestTemplate').html());
 
@@ -112,7 +164,7 @@ var app = require('tinyapp'),
     };
 
 module.exports = api;
-},{"backbone":5,"tinyapp":11,"underscore":12}],3:[function(require,module,exports){
+},{"backbone":7,"tinyapp":13,"underscore":14}],5:[function(require,module,exports){
 var Model = require('backbone').Model,
     app = require('tinyapp'),
 
@@ -127,7 +179,7 @@ var Model = require('backbone').Model,
         // sourceId is used to filter the event. The model
         // does not need to know where the event comes from,
         // only which item is clicked.
-        app.on('toggled-checkedin', sourceId, toggleCheckedIn.bind(this));
+        app.on('toggled-checkedin', sourceId, toggleCheckedIn);
 
         // Relay the change event so that the view can listen for it
         // without knowing anything about the model
@@ -144,7 +196,7 @@ var Model = require('backbone').Model,
             // Broadcast the message on the aggregator
             app.trigger('changed.checkedIn', event);
 
-        }.bind(this));
+        });
     },
     // The collection expects a Backbone.Model constructor.
 
@@ -154,7 +206,7 @@ var Model = require('backbone').Model,
     });
 
 module.exports = api;
-},{"backbone":5,"tinyapp":11}],4:[function(require,module,exports){
+},{"backbone":7,"tinyapp":13}],6:[function(require,module,exports){
 //     Backbone.js 0.9.2
 
 //     (c) 2010-2012 Jeremy Ashkenas, DocumentCloud Inc.
@@ -1594,7 +1646,7 @@ module.exports = api;
   module.exports = create(this);
     
 }(this);
-},{"underscore":12}],5:[function(require,module,exports){
+},{"underscore":14}],7:[function(require,module,exports){
 (function (global){
 //     Backbone.js 1.2.3
 
@@ -3492,7 +3544,7 @@ module.exports = api;
 }));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"jquery":9,"underscore":12}],6:[function(require,module,exports){
+},{"jquery":11,"underscore":14}],8:[function(require,module,exports){
 /**
  * cuid.js
  * Collision-resistant UID generator for browsers and node.
@@ -3604,7 +3656,7 @@ module.exports = api;
 
 }(this.applitude || this));
 
-},{}],7:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 /*!
  * EventEmitter2
  * https://github.com/hij1nx/EventEmitter2
@@ -4179,7 +4231,7 @@ module.exports = api;
   }
 }();
 
-},{}],8:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 // Uses Node, AMD or browser globals to create a module.
 
 // If you want something that will work in other stricter CommonJS environments,
@@ -13513,7 +13565,7 @@ return jQuery;
 
 })( window ); }));
 
-},{}],9:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.4
  * http://jquery.com/
@@ -22725,7 +22777,7 @@ return jQuery;
 
 }));
 
-},{}],10:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 //     Underscore.js 1.3.3
 //     (c) 2009-2012 Jeremy Ashkenas, DocumentCloud Inc.
 //     Underscore is freely distributable under the MIT license.
@@ -23786,7 +23838,7 @@ return jQuery;
 
 }).call(this);
 
-},{}],11:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 var $ = require('jquery-browserify'),
   EventEmitter2 = require('eventemitter2').EventEmitter2,
   underscore = require('underscore'),
@@ -23930,7 +23982,7 @@ if (typeof window !== 'undefined') {
 
 module.exports = api;
 
-},{"backbone-browserify":4,"cuid":6,"eventemitter2":7,"jquery-browserify":8,"underscore":10}],12:[function(require,module,exports){
+},{"backbone-browserify":6,"cuid":8,"eventemitter2":9,"jquery-browserify":10,"underscore":12}],14:[function(require,module,exports){
 //     Underscore.js 1.7.0
 //     http://underscorejs.org
 //     (c) 2009-2014 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -25347,4 +25399,4 @@ module.exports = api;
   }
 }.call(this));
 
-},{}]},{},[1,2,3]);
+},{}]},{},[1,2,3,4,5]);

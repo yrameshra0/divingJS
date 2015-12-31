@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	</head>
+	<body>
+		
+		<section>
+			<h1 id="qunit-header">Qunit Test Suiet</h1>
+			<h2 id="qunit-banner"></h2>
+			<div id="qunit-testrunner-toolbar"></div>
+			<h2 id="qunit-userAgent"></h2>
+			<ol id="qunit-tests"></ol>
+		</section>
+		<section id="container"></section>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/document-register-element/0.5.3/document-register-element.js">/* W3C Custom Elements */
+		</script>
+		<script type="text/javascript" src="./bower_components/qunit/qunit/qunit.js"></script>
+		<script type="text/javascript" src="./bower_components/jquery/dist/jquery.js"></script>
+		<link href="./bower_components/qunit/qunit/qunit.css" type="text/css" rel="stylesheet"></link>
+		
+		<script type="text/javascript">
+		document.registerElement('x-knob', {
+    	prototype: Object.create(
+	        HTMLInputElement.prototype, {
+	            createdCallback: {
+	                value: function() {
+	                    console.log('here I am ^_^ ');
+	                    console.log('with content: ', this.textContent);
+	                }
+	            },
+	            attachedCallback: {
+	                value: function() {
+	                    console.log('live on DOM ;-) ');
+	                }
+	            },
+	            detachedCallback: {
+	                value: function() {
+	                    console.log('leaving the DOM :-( )');
+	                }
+	            },
+	            attributeChangedCallback: {
+	                value: function(
+	                    name, previousValue, value
+	                ) {
+	                    console.log('x-knob attributeChangedCallback', this, name, previousValue, value);
+	                }
+	            }
+	        })
+    	});
+		</script>
+
+		<script type="text/javascript">
+		$(function(){
+
+			test('documet.register()', function(){
+				equal(typeof document.registerElement, 'function', 'Should exist.');
+			});
+
+			test('document.createElement("x-knob")', function(){
+				var knob = document.createElement('x-knob');
+				ok(knob.getAttribute, 'Should produce custom element.');
+			});
+
+			test('x-knob inheritance', function(){
+				var knob = document.createElement('x-knob');
+				ok(knob.checkValidity, 'Should inherit from input element.')
+			});
+		})
+		</script>
+	</body>
+</html>

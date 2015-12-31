@@ -1,0 +1,16 @@
+{
+  "name": "qunitTests",
+  "authors": [
+    "Y Ramesh Rao <ramesh.rao.y@philips.com>"
+  ],
+  "description": "Contians all the qunit based tests",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "qunit": "~1.20.0"
+  }
+}

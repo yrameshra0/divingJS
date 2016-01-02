@@ -1,0 +1,14 @@
+{
+  "name": "nodeexpresseg",
+  "version": "1.0.0",
+  "description": "Example project for getting introduced towards real node implementation along with the nuances around it.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ramesh",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}

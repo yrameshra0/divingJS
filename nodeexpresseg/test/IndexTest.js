@@ -41,4 +41,10 @@ describe('Express Tests', function() {
             .get('/desperate')
             .expect(500, 'Your request was not handled successfully :(', done);
     });
+
+    it('Hulk Hogan Template Engine integration', function(done) {
+        request(app)
+            .get('/template')
+            .expect(200, "Hello World!", done);
+    });
 });

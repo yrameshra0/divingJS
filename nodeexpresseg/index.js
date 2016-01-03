@@ -1,8 +1,26 @@
 var express = require('express'),
 
+    // Mustache template engine
+    hulk = require('hulk-hogan'),
+
     // Create an application instance
     app = express(),
     port = process.env.PORT || 44444;
+
+// Tell express where to find your templates
+app.set('views', __dirname + '/views');
+
+// By default, Express will use a generic HTML wrapper (a layout)
+// to render all your pages. If you don't need that, turn it off.
+app.set('view options', {
+    layout: false
+});
+
+// Tell express which engine to use
+app.set('view engine', 'hulk');
+
+// Specify the extension you'll use for your views
+app.engine('.hulk', hulk.__express);
 
 
 // Adding some data to request object that other middleware and routes can use.
@@ -36,6 +54,14 @@ app.get('/desperate', function(request, response, next) {
     } catch (error) {
         return next(error);
     }
+});
+
+
+app.get('/template', function(request, response) {
+
+    response.render('index', {
+        what: 'World'
+    });
 });
 
 app.listen(port, function() {

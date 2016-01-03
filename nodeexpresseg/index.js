@@ -5,7 +5,11 @@ var express = require('express'),
 
     // Create an application instance
     app = express(),
-    port = process.env.PORT || 44444;
+
+    // bodyParser for request body 
+    bodyParser = require('body-parser'),
+
+    port = +process.env.PORT || 44444;
 
 // Tell express where to find your templates
 app.set('views', __dirname + '/views');
@@ -22,6 +26,8 @@ app.set('view engine', 'hulk');
 // Specify the extension you'll use for your views
 app.engine('.hulk', hulk.__express);
 
+// .bodyParser() parses the request body and creates the request.body object.
+app.use(bodyParser.json());
 
 // Adding some data to request object that other middleware and routes can use.
 app.use(function(request, response, next) {
@@ -56,12 +62,14 @@ app.get('/desperate', function(request, response, next) {
     }
 });
 
-
 app.get('/template', function(request, response) {
-
     response.render('index', {
         what: 'World'
     });
+});
+
+app.post('/bodyparse', function(request, response) {
+    response.send(request.body.foo);
 });
 
 app.listen(port, function() {
@@ -75,7 +83,8 @@ app.use(function(error, request, response, next) {
 
     // Sending out error to callee clients.
     response.status(500).send('Your request was not handled successfully :(');
-
-
 });
+
+// static() creates a static file server, which looks for assets in /public directory
+app.use(express.static(__dirname + '/public'));
 module.exports = app;

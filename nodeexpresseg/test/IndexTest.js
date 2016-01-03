@@ -20,14 +20,12 @@ describe('Express Tests', function() {
         request(app)
             .get('/coder')
             .expect(200, 'Hello coder', done);
-
     });
 
     it('Retrieve Whitelisted Page (Regex Test - 3)', function(done) {
         request(app)
             .get('/crazilycoding')
             .expect(404, done);
-
     });
 
     it('Middleware processing and forwarding', function(done) {
@@ -47,4 +45,21 @@ describe('Express Tests', function() {
             .get('/template')
             .expect(200, "Hello World!", done);
     });
+
+    it('Static file server', function(done) {
+        request(app)
+            .get('/staticfileserving.txt')
+            .expect(200, "Hello World!", done);
+    });
+
+    it('Request Body Parsing', function(done) {
+        var data = {
+            foo: 'bar'
+        };
+        request(app)
+            .post('/bodyparse')
+            .send(data)
+            .expect(200, 'bar', done);
+    });
+
 });

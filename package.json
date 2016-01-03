@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "backbone": "^1.2.3",
+    "body-parser": "^1.14.2",
     "hulk-hogan": "0.0.9",
     "jquery": "^2.1.4",
     "jquery-browserify": "^1.8.1",

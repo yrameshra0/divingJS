@@ -16,6 +16,8 @@
     "hulk-hogan": "0.0.9",
     "jquery": "^2.1.4",
     "jquery-browserify": "^1.8.1",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
     "q": "^1.4.1",
     "stampit": "^2.1.1",
     "tinyapp": "^0.1.2"

@@ -15,7 +15,7 @@ module.exports = function(grunt) {
                     quiet: false, //optionally supress output to standard out (defaults to false)
                     clearRequireCache: false, //optionally clear the require cache before running tests (defaults to false)
                 },
-                src: ['test/**/*.js', '!test/qunitTests/**/*.js', './nodeexpresseg/test/**/*.js']
+                src: ['test/**/*.js', '!test/qunitTests/**/*.js', './nodeexpresseg/test/**/*.js', './user-authorization/test/**/*.js']
             }
         },
         //Configuring Coverage Reporter over mocha
@@ -33,7 +33,7 @@ module.exports = function(grunt) {
         jshint: {
             files: ['Gruntfile.js', 'app/**/*.js', 'test/**/*.js', './guestlisteg/src/**/*.js', './guestlisteg/test/**/*.js',
                 './guestlistbackboneeg/src/**/*.js', './guestlistbackboneeg/src/**/*.js', '!test/qunitTests/bower_components/**/*.js',
-                'nodeexpresseg/*.js', 'nodeexpresseg/test/**/*.js'
+                'nodeexpresseg/*.js', 'nodeexpresseg/test/**/*.js', 'user-authorization/**/*.js'
             ],
             options: {
 

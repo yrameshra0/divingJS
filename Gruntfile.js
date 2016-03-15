@@ -22,7 +22,7 @@ module.exports = function(grunt) {
 
     // Configure jshint Task
     jshint: {
-      files: ['Gruntfile.js', 'app/**/*.js', 'test/**/*.js', './guestlisteg/src/**/*.js', './guestlisteg/test/**/*.js', './guestlistbackboneeg/src/**/*.js', './guestlistbackboneeg/src/**/*.js', '!test/qunitTests/bower_components/**/*.js', 'nodeexpresseg/*.js', 'nodeexpresseg/test/**/*.js', 'user-authorization/**/*.js', 'loggingexpresseg/**/*.js'],
+      files: ['Gruntfile.js', 'app/**/*.js', 'test/**/*.js', './guestlisteg/src/**/*.js', './guestlisteg/test/**/*.js', './guestlistbackboneeg/src/**/*.js', './guestlistbackboneeg/src/**/*.js', '!test/qunitTests/bower_components/**/*.js', 'nodeexpresseg/*.js', 'nodeexpresseg/test/**/*.js', 'user-authorization/**/*.js', 'loggingexpresseg/*.js', 'loggingexpresseg/test/*.js'],
       options: {
 
       }

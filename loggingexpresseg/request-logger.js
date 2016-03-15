@@ -30,9 +30,9 @@ var bunyan = require('bunyan'), // Ligthweight logging library
       };
     },
 
-    res: function resSerializer(response) {
+    res: function resSerializer(res) {
       if (!res)
-        return response;
+        return res;
 
       return {
         statusCode: res.statusCode,
@@ -84,9 +84,9 @@ var bunyan = require('bunyan'), // Ligthweight logging library
           log.info({
             res: res
           });
-
-          next();
         });
+
+        next();
       };
     };
 
@@ -110,17 +110,16 @@ var bunyan = require('bunyan'), // Ligthweight logging library
           data = assign({}, req.params, {
             requestId: req.requestId
           });
-
           log.info(data);
         }
 
         res.header('content-type', 'image/gif');
-        var buf = new Buffer(35);
-        buf.write("R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=", "base64");
-        res.end(buf, 'binary');
+        // GIF images can be so small, it's
+        // easy to just inline it instead of
+        // loading from a file:
+        res.send("R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=");
       };
     };
-
     return log;
   };
 

@@ -4,9 +4,13 @@ var expect = require('chai').expect,
 
 describe('RESTful Application Tests', function() {
   it('Method Overiding', function(done) {
+    var data = {
+      foo: "bar"
+    };
     request(app)
-      .post('/putMethodOverride')
-      .set('X-HTTP-Method-Override', 'PUT')
-      .expect(200, "Successfully Post redirected to Put", done);
+      .post('/getMethodOverride')
+      .send(data)
+      .set('X-HTTP-Method-Override', 'GET')
+      .expect(200, "Successfully POST redirected to GET -- bar", done);
   });
 });

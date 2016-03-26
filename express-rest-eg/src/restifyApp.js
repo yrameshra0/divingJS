@@ -1,12 +1,14 @@
 var express = require('express'),
   methodOverride = require('method-override'),
+  bodyParser = require('body-parser'),
   app = express(),
   port = 77777;
 
 app.use(methodOverride('X-HTTP-Method-Override'));
+app.use(bodyParser.json());
 
-app.put('/putMethodOverride', function(request, response) {
-  response.end("Successfully Post redirected to Put");
+app.get('/getMethodOverride', function(request, response) {
+  response.end("Successfully POST redirected to GET -- " + request.body.foo);
 });
 
 app.listen(port, function() {

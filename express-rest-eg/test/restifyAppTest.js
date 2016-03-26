@@ -13,4 +13,10 @@ describe('RESTful Application Tests', function() {
       .set('X-HTTP-Method-Override', 'GET')
       .expect(200, "Successfully POST redirected to GET -- bar", done);
   });
+
+  it("Method Not Allowed at place of Not Found", function(done) {
+    request(app)
+      .put('/getMethodOverride')
+      .expect(405, done);
+  });
 });

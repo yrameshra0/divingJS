@@ -63,4 +63,42 @@ describe('RESTful Album Application', function() {
       .get("/albums/unkownAlbumId")
       .expect(404, done);
   });
+
+  it('PUT Album with existing id', function(done) {
+    var album = {
+      'name': 'DevD',
+      'artist': 'Amit Trivedi'
+    };
+
+    request(app)
+      .put(createdAlbumId.href)
+      .send(album)
+      .expect(200, done);
+  });
+
+
+  it('PUT Album with non existing id', function(done) {
+    var album = {
+      'name': 'Piku',
+      'artist': 'Shoojit Sircar'
+    };
+
+    request(app)
+      .put('/albums/someId')
+      .send(album)
+      .expect(201, done);
+  });
+
+
+  it('DELETE Album', function(done) {
+    request(app)
+      .delete(createdAlbumId.href)
+      .expect(200, done);
+  });
+
+  it('DELETE Album with unkonwn id', function(done) {
+    request(app)
+      .delete(createdAlbumId.href)
+      .expect(200, done);
+  });
 });

@@ -56,6 +56,29 @@ app.get('/albums/:id', function(request, response, next) {
   response.status(200).send(body);
 });
 
+app.put('/albums/:id', function(request, response) {
+  var id = request.params.id,
+    album = request.body,
+    exists = albums[id];
+
+  album.id = id;
+  albums[id] = album;
+
+  if (exists) {
+    return response.sendStatus(200);
+  }
+
+  response.status(201).send({
+    href: '/albums/' + id
+  });
+});
+
+app.delete('/albums/:id', function(request, response) {
+  var id = request.params.id;
+  delete albums[id];
+
+  response.sendStatus(200);
+});
 
 app.all('/albums/:id', errorHandler.httpError(405));
 

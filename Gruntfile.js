@@ -16,13 +16,13 @@ module.exports = function(grunt) {
           quiet: false, //optionally supress output to standard out (defaults to false)
           clearRequireCache: false, //optionally clear the require cache before running tests (defaults to false)
         },
-        src: ['test/**/*.js', '!test/qunitTests/**/*.js', './nodeexpresseg/test/**/*.js', './user-authorization/test/**/*.js', './express-rest-eg/test/*.js']
+        src: ['test/**/*.js', '!test/qunitTests/**/*.js', './nodeexpresseg/test/**/*.js', './user-authorization/test/**/*.js', './express-rest-eg/test/*.js', 'feature-toggle/test/*.js']
       }
     },
 
     // Configure jshint Task
     jshint: {
-      files: ['Gruntfile.js', 'app/**/*.js', 'test/**/*.js', './guestlisteg/src/**/*.js', './guestlisteg/test/**/*.js', './guestlistbackboneeg/src/**/*.js', './guestlistbackboneeg/src/**/*.js', '!test/qunitTests/bower_components/**/*.js', 'nodeexpresseg/*.js', 'nodeexpresseg/test/**/*.js', 'user-authorization/**/*.js', 'loggingexpresseg/*.js', 'loggingexpresseg/test/*.js', 'express-rest-eg/*.js', 'express-rest-eg/test/*.js'],
+      files: ['Gruntfile.js', 'app/**/*.js', 'test/**/*.js', './guestlisteg/src/**/*.js', './guestlisteg/test/**/*.js', './guestlistbackboneeg/src/**/*.js', './guestlistbackboneeg/src/**/*.js', '!test/qunitTests/bower_components/**/*.js', 'nodeexpresseg/*.js', 'nodeexpresseg/test/**/*.js', 'user-authorization/**/*.js', 'loggingexpresseg/*.js', 'loggingexpresseg/test/*.js', 'express-rest-eg/*.js', 'express-rest-eg/test/*.js', 'feature-toggle/*.js', 'feature-toggle/test/*.js'],
       options: {
 
       }

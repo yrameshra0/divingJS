@@ -13,12 +13,10 @@ var union = require('mout/array/union'),
           var pair = part.split('=');
           pair[0] = decodeURIComponent(pair[0]);
           pair[1] = decodeURIComponent(pair[1]);
-          console.log(pair[0] + " -- " + pair[1]);
           params[pair[0]] = (pair[1] !== 'undefined') ? pair[1] : true;
         });
       }
 
-      console.log(params);
       return params;
     },
     locationSearch: function locationSearch() {

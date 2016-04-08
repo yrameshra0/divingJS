@@ -1,5 +1,5 @@
 var assert = require('chai').assert,
-  featureToggle = require('../feature-toggle-client.js'),
+  featureToggle = require('../src/feature-toggle-client.js'),
   jsdom = require('mocha-jsdom');
 
 describe('Feature Toggle Client Tests', function() {
@@ -37,7 +37,6 @@ describe('Feature Toggle Client Tests', function() {
 
   it('Sets Features', function() {
     var ft = featureToggle.setFeatures(['ft1', 'ft2']);
-    console.log(JSON.stringify(ft));
     assert.isNotNull(ft);
   });
 });

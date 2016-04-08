@@ -34,4 +34,10 @@ describe('Feature Toggle Client Tests', function() {
     featureToggle.setFlags(['ft1', 'ft2']);
     assert.equal(document.getElementsByTagName('body')[0].className, '.new-feature{display:none;} ft-ft1 ft-ft2');
   });
+
+  it('Sets Features', function() {
+    var ft = featureToggle.setFeatures(['ft1', 'ft2']);
+    console.log(JSON.stringify(ft));
+    assert.isNotNull(ft);
+  });
 });

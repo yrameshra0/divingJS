@@ -31,11 +31,41 @@ var union = require('mout/array/union'),
       }).join(' '),
       classNames = document.getElementsByTagName('body')[0]
       .className.split(' ').filter(function(className) {
-        console.log(className);
         return !className.match(/ˆft/);
       });
 
     document.getElementsByTagName('body')[0].className = classNames.join(' ') + ' ' + featureClasses;
+  },
+  setFeatures = function setFeatures(baseFeatures) {
+    var paramFeatures = getParamFeatures(),
+      activeFeatures = getActiveFeatures(baseFeatures, paramFeatures),
+      methods = {
+        active: function active(feature) {
+          var testFeature = feature && feature.trim && feature.trim();
+          return contains(activeFeatures, testFeature);
+        },
+        activate: function activate(features) {
+          activeFeatures = union(activeFeatures, features);
+          setFlags(activeFeatures);
+          this.emit('activated', features);
+          return this;
+        },
+        deactivate: function deactivate(features) {
+          activeFeatures = activeFeatures.filter(function(feature) {
+            return !contains(features, feature);
+          });
+          setFlags(activeFeatures);
+          this.emit('deactivated', features);
+          return this;
+        },
+      },
+      ft = stampit.compose(
+        stampit.convertConstructor(EventEmitter),
+        stampit(methods))
+      .create();
+
+    setFlags(activeFeatures);
+    return ft;
   },
   exportVar = {
     getParams: getParams,
@@ -44,7 +74,8 @@ var union = require('mout/array/union'),
     },
     getParamFeatures: getParamFeatures,
     getActiveFeatures: getActiveFeatures,
-    setFlags: setFlags
+    setFlags: setFlags,
+    setFeatures: setFeatures
   };
 
 module.exports = exportVar;

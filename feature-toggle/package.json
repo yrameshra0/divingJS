@@ -8,10 +8,7 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "mout": "^1.0.0",
-    "stampit": "^2.1.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "jsdom": "^8.3.0",
     "mocha-jsdom": "^1.1.0"

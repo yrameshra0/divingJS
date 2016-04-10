@@ -33,8 +33,7 @@ module.exports = function(grunt) {
       dist: {
         files: {
           './guestlisteg/public/app.js': ['./guestlisteg/src/*.js'],
-          './guestlistbackboneeg/public/app.js': ['./guestlistbackboneeg/src/*.js'],
-          './feature-toggle/public/app.js': ['./feature-toggle/src/*.js']
+          './guestlistbackboneeg/public/app.js': ['./guestlistbackboneeg/src/*.js']
         }
       },
       options: {

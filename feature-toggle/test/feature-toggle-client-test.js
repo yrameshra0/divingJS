@@ -5,7 +5,7 @@ var assert = require('chai').assert,
 describe('Feature Toggle Client Tests', function() {
 
   mockFeatureLocationSearch = function mockFeatureLocationSearch(queryString) {
-    Object.getPrototypeOf(featureToggle).locationSearch = function() {
+    featureToggle.locationSearch = function() {
       return queryString;
     };
   };
@@ -23,20 +23,11 @@ describe('Feature Toggle Client Tests', function() {
     assert.equal(featureToggle.getParamFeatures().length, 2);
   });
 
-  it('Fetch Active Features', function() {
-    assert.equal(featureToggle.getActiveFeatures(['ft1'], ['ft2', 'ft3']).length, 3);
-  });
-
   jsdom();
   it('Sets Flags', function() {
     document.getElementsByTagName('body')[0].className = '.new-feature{display:none;}';
 
     featureToggle.setFlags(['ft1', 'ft2']);
     assert.equal(document.getElementsByTagName('body')[0].className, '.new-feature{display:none;} ft-ft1 ft-ft2');
-  });
-
-  it('Sets Features', function() {
-    var ft = featureToggle.setFeatures(['ft1', 'ft2']);
-    assert.isNotNull(ft);
   });
 });
